@@ -7,9 +7,10 @@ import Login from "./component/Login";
 import Signup from "./component/Signup";
 import Home from "./component/Home";
 import Cart from "./component/Cart";
+import Profile from "./component/Profile";
 
 function App() {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
 
   if(!login){
   return (
@@ -67,6 +68,11 @@ function App() {
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to={"/profile"}>
+                    Profile
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to={"/cart"}>
                     Shopping Cart
                   </Link>
@@ -80,6 +86,7 @@ function App() {
           <div className="inner">
             <Switch>
               <Route path="/home" component={Home} />
+              <Route path="/profile" component={Profile} />
               <Route path="/cart" component={Cart} />
               <Route path="/" component={Home} />
             </Switch>
