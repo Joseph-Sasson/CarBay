@@ -4,7 +4,7 @@ function Signup(){
 
   return (
     <form>
-      <h3>Register</h3>
+      <h3>Sign up</h3>
       <div className="form-group">
         <label>First name</label>
         <input type="text" className="form-control" placeholder="First name" />
