@@ -10,7 +10,7 @@ import Cart from "./component/Cart";
 import Profile from "./component/Profile";
 
 function App() {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
 
   if(!login){
   return (
@@ -42,7 +42,7 @@ function App() {
           <div className="inner">
             <Switch>
               <Route path="/login" component={Login} />
-              <Route path="/signup" component={Signup} />
+              <Route path="/signup" component={()=><Signup setLogin={setLogin}/>} />
               <Route path="/" component={Login} />
             </Switch>
           </div>
@@ -57,25 +57,20 @@ function App() {
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="container">
-            <Link className="navbar-brand" to={"/"}>
-              CarBay
-            </Link>
+            <Link className="navbar-brand" to={"/"}>CarBay</Link>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to={"/home"}>
-                    Home
-                  </Link>
+                  <Link className="nav-link" to={"/home"}>Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={"/profile"}>
-                    Profile
-                  </Link>
+                  <Link className="nav-link" to={"/profile"}>Profile</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={"/cart"}>
-                    Shopping Cart
-                  </Link>
+                  <Link className="nav-link" to={"/cart"}>Shopping Cart</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to={"/"} onClick={()=>setLogin(false)}>Logout</Link>
                 </li>
               </ul>
             </div>
