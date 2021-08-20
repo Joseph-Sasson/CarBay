@@ -3,7 +3,7 @@ import React from 'react';
 function Login(){
   return (
     <form>
-      <h3>Log in</h3>
+      <h3>Login</h3>
       <div className="form-group">
         <label>Email</label>
         <input type="email" className="form-control" placeholder="Enter email" />
@@ -19,7 +19,7 @@ function Login(){
             <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
         </div>
       </div>
-      <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
+      <button type="submit" className="btn btn-dark btn-lg btn-block">Login</button>
 
     </form>
   )

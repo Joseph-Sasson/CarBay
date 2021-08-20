@@ -10,7 +10,7 @@ import Cart from "./component/Cart";
 import Profile from "./component/Profile";
 
 function App() {
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
 
   if(!login){
   return (

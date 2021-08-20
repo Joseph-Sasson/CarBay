@@ -6,12 +6,8 @@ function Signup(){
     <form>
       <h3>Sign up</h3>
       <div className="form-group">
-        <label>First name</label>
-        <input type="text" className="form-control" placeholder="First name" />
-      </div>
-      <div className="form-group">
-        <label>Last name</label>
-        <input type="text" className="form-control" placeholder="Last name" />
+        <label>Full name</label>
+        <input type="text" className="form-control" placeholder="Enter name" />
       </div>
       <div className="form-group">
         <label>Email</label>
@@ -21,7 +17,11 @@ function Signup(){
         <label>Password</label>
         <input type="password" className="form-control" placeholder="Enter password" />
       </div>
-      <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
+      <div className="form-group">
+        <label>Password confirmation</label>
+        <input type="password" className="form-control" placeholder="Enter password" />
+      </div>
+      <button type="submit" className="btn btn-dark btn-lg btn-block">Sign up</button>
       <p className="forgot-password text-right">
       </p>
     </form>
