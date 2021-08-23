@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Signup({setLogin}){
+function Signup({setUser}){
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ function Signup({setLogin}){
   }).then((r) => {
     setIsLoading(false);
     if (r.ok) {
-      r.json().then((user) => console.log(user)).then(setLogin(true));
+      r.json().then((user) => setUser(user));
     } else {
       r.json().then((err) => setErrors(err.errors));
     }})

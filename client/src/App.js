@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -10,9 +10,25 @@ import Cart from "./component/Cart";
 import Profile from "./component/Profile";
 
 function App() {
-  const [login, setLogin] = useState(false)
+  const [user, setUser] = useState(null);
 
-  if(!login){
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  function handleLogout() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
+
+  if(!user){
   return (
     <Router>
       <div className="App">
@@ -42,7 +58,7 @@ function App() {
           <div className="inner">
             <Switch>
               <Route path="/login" component={Login} />
-              <Route path="/signup" component={()=><Signup setLogin={setLogin}/>} />
+              <Route path="/signup" component={()=><Signup setUser={setUser}/>} />
               <Route path="/" component={Login} />
             </Switch>
           </div>
@@ -70,7 +86,7 @@ function App() {
                   <Link className="nav-link" to={"/cart"}>Shopping Cart</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={"/"} onClick={()=>setLogin(false)}>Logout</Link>
+                  <Link className="nav-link" to={"/"} onClick={handleLogout}>Logout</Link>
                 </li>
               </ul>
             </div>
