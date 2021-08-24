@@ -7,3 +7,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, :confirmation => true, :length => {:within => 8..15}
 end
+
+
