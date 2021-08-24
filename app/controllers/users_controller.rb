@@ -3,6 +3,16 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   before_action :authorize, only: [:show]
 
+  def login
+    # render json: {error: "hit"}
+    user = User.find_by(email: user_params[:email])
+    if user && user.authenticate(user_params[:password])
+      render json: user
+    else
+      render json: {error:"hit"}
+    end
+  end
+
   def index
     users = User.all
     render json: users

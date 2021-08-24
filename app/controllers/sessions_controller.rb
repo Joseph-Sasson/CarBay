@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+<<<<<<< HEAD
 
   def create
     user = User.find_by(username: params[:username])
@@ -15,3 +16,9 @@ class SessionsController < ApplicationController
     head :no_content
   end
 end
+=======
+    def index
+        byebug
+    end
+end
+>>>>>>> login
