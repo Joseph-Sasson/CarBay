@@ -89,11 +89,8 @@ function Login({ setUser }) {
       >
         {isLoading ? "Loading..." : "Login"}
       </button>
-      <div>
-        {errors.map((err) => (
-          <span>!{err}</span>
-        ))}
-      </div>
+
+      <div>!{errors}</div>
     </form>
   );
 }
