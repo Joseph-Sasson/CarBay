@@ -60,12 +60,16 @@ function App() {
           <div className="outer">
             <div className="inner">
               <Switch>
-                <Route path="/login" component={Login} />
+                <Route
+                  path="/login"
+                  component={() => <Login setUser={setUser} />}
+                />
                 <Route
                   path="/signup"
                   component={() => <Signup setUser={setUser} />}
                 />
-                <Route path="/" component={Login} />
+
+                <Route path="/" component={() => <Login setUser={setUser} />} />
               </Switch>
             </div>
           </div>

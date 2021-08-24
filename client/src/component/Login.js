@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
-function Login({ setLogin }) {
+function Login({ setUser }) {
+  const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     rememberMe: false,
   });
-  console.log(formData);
+  // console.log(formData);
   const handleLogin = (event) => {
     setIsLoading(true);
     event.preventDefault();
@@ -17,13 +18,11 @@ function Login({ setLogin }) {
       body: JSON.stringify(formData),
     }).then((r) => {
       setIsLoading(false);
-      // if (r.ok) {
-      //   r.json()
-      //     .then((user) => console.log(user))
-      //     .then(setLogin(true));
-      // } else {
-      //   r.json().then((err) => setErrors(err.errors));
-      // }
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
     });
   };
 
@@ -90,6 +89,11 @@ function Login({ setLogin }) {
       >
         {isLoading ? "Loading..." : "Login"}
       </button>
+      <div>
+        {errors.map((err) => (
+          <span>!{err}</span>
+        ))}
+      </div>
     </form>
   );
 }
