@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :shopping_carts, only: [:index, :destroy]
   resources :cars, only: [:index, :create, :update, :destroy]
   resources :users
-  resources :sessions, only: [:index]
 
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"

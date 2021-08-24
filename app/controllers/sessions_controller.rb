@@ -14,8 +14,4 @@ class SessionsController < ApplicationController
     session.delete :user_id
     head :no_content
   end
-
-    def index
-        byebug
-    end
 end
