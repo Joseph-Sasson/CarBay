@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   before_action :authorize, only: [:show]
 
   def login
-    render json: {error: "hit"}
-    # user = User.find_by(email: user_params[:email])
-    # if user && user.authenticate(user_params[:password])
-    #   render json: user
-    # else
-    #   render json: status: 404
-    # end
+    # render json: {error: "hit"}
+    user = User.find_by(email: user_params[:email])
+    if user && user.authenticate(user_params[:password])
+      render json: user
+    else
+      render json: {error:"hit"}
+    end
   end
 
   def index
