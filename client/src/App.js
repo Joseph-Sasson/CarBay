@@ -97,7 +97,7 @@ function App() {
           <div className="inner">
             <Switch>
               <Route path="/home" component={Home} />
-              <Route path="/profile" component={Profile} />
+              <Route path="/profile" component={() =><Profile user={user}/>} />
               <Route path="/cart" component={Cart} />
               <Route path="/" component={Home} />
             </Switch>

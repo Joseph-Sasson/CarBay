@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Profile(){
+function Profile({user}){
   return (
     <div>
-      Profile Page
+      Name: {user.name}
     </div>
   )
 }
