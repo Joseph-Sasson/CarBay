@@ -22,15 +22,18 @@ function Profile({user, setUser}){
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(userForm)
-    })
+    }).then((r) => r.json())
+    .then(setUser);
   }
 
   const handleDelete = () =>{
     if (window.confirm("Are you sure you want to delete this account?"))
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }});}
+    fetch(`/users/${user.id}`,{
+    method: "DELETE",
+      }).then((r)=>{
+        if (r.ok){
+          setUser(null)
+    }})}
 
   return (
     <div className = "auth-inners">

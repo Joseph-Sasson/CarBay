@@ -21,6 +21,7 @@ function App() {
   }, []);
 
   function handleLogout() {
+    if (window.confirm("Are you sure you want to logout?"))
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
