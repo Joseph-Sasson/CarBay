@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 
 function Profile({user, setUser}){
   const [errors, setErrors] = useState([]);
-  const [isRevealPwd, setIsRevealPwd] = useState(false);
+  // const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [userForm, setUserForm] = useState({
     name: user.name,
-    email: user.email,
-    password: user.password,
+    email: user.email
+    // password: user.password,
   })
 
   const handleChange = e =>{
@@ -60,7 +60,7 @@ function Profile({user, setUser}){
             onChange = {handleChange}
           />
         </li>
-        <li className = 'account-list'>Password:
+        {/* <li className = 'account-list'>Password:
           <input
           type={isRevealPwd ? "text" : "password"}
           name = 'password'
@@ -69,7 +69,7 @@ function Profile({user, setUser}){
           />
           <br/>
           <i onClick={() => setIsRevealPwd(!isRevealPwd)}>Show Password</i>
-        </li>
+        </li> */}
       </ul>
       <button onClick = {handleDelete}>Delete Account</button>
       <button className = 'change-button' onClick = {submitChange}>Update Account</button>
