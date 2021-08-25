@@ -22,8 +22,11 @@ function Profile({user, setUser}){
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(userForm)
-    }).then((r) => r.json())
-    .then(setUser);
+    }).then((r)=>{
+      if (r.ok){
+        setUser(r)
+      }
+    })
   }
 
   const handleDelete = () =>{
