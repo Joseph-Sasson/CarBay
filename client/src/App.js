@@ -119,7 +119,7 @@ function App() {
               <Route path="/home" component={Home} />
               <Route
                 path="/profile"
-                component={() => <Profile user={user} />}
+                component={() => <Profile user={user} setUser={setUser} />}
               />
               <Route path="/cart" component={Cart} />
               <Route path="/" component={Home} />

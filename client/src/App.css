@@ -1,0 +1,26 @@
+.change-button {
+  float: right;
+}
+
+#header {
+  list-style-type: none;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.account-list {
+  margin: 15px;
+}
+
+.password-form {
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+.user-card{
+  float: left;
+  margin: 2%;
+  padding: 1%;
+}

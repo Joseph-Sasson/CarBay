@@ -8,7 +8,7 @@ function Login({ setUser }) {
     password: "",
     rememberMe: false,
   });
-  // console.log(formData);
+
   const handleLogin = (event) => {
     setIsLoading(true);
     event.preventDefault();
@@ -89,8 +89,9 @@ function Login({ setUser }) {
       >
         {isLoading ? "Loading..." : "Login"}
       </button>
-
+       
       <div>!{errors}</div>
+
     </form>
   );
 }
