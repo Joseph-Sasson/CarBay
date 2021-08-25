@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 
 function Profile({user, setUser}){
-  const [isRevealPwd, setIsRevealPwd] = useState(false);
+  const [errors, setErrors] = useState([]);
+  // const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [userForm, setUserForm] = useState({
     name: user.name,
-    email: user.email,
-    password: user.password,
+    email: user.email
+    // password: user.password,
   })
 
   const handleChange = e =>{
@@ -22,12 +23,13 @@ function Profile({user, setUser}){
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(userForm)
-    }).then((r)=>{
-      if (r.ok){
-        setUser(r)
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
       }
-    })
-  }
+    });}
 
   const handleDelete = () =>{
     if (window.confirm("Are you sure you want to delete this account?"))
@@ -58,7 +60,7 @@ function Profile({user, setUser}){
             onChange = {handleChange}
           />
         </li>
-        <li className = 'account-list'>Password:
+        {/* <li className = 'account-list'>Password:
           <input
           type={isRevealPwd ? "text" : "password"}
           name = 'password'
@@ -67,10 +69,15 @@ function Profile({user, setUser}){
           />
           <br/>
           <i onClick={() => setIsRevealPwd(!isRevealPwd)}>Show Password</i>
-        </li>
+        </li> */}
       </ul>
       <button onClick = {handleDelete}>Delete Account</button>
       <button className = 'change-button' onClick = {submitChange}>Update Account</button>
+      <div>
+        {errors.map((err) => (
+          <span>!{err}</span>
+        ))}
+      </div>
     </div>
   )
 }

@@ -27,7 +27,7 @@ function Signup({ setUser }) {
       name: formData.name,
       email: formData.email,
       password: formData.password,
-      passwordConfirmation: formData.passwordConfirmation,
+      password_confirmation: formData.passwordConfirmation,
     };
     fetch("/users", {
       method: "POST",
