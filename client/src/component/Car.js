@@ -3,18 +3,21 @@ import React from 'react';
 function Car({car, handleBuyNow, setCars, user}){
 
   const handleDeleteCar = (deletedCar) =>{
-    
     setCars((cars)=>cars.filter((car)=>car.id !== deletedCar.id))
   }
 
   const remove = () =>{
     if (window.confirm("Are you sure you want to delete this car?"))
-    fetch(`/cars/${car.id}`,{
+    if (user.id === car.user.id)
+    {fetch(`/cars/${car.id}`,{
     method: "DELETE",
       }).then((r)=>{
         if (r.ok){
           handleDeleteCar(car)
     }})}
+  else
+  {alert("You can't delete this car unless you own it!")}
+}
 
   return (
     <div className="row">
