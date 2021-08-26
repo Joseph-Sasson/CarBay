@@ -153,7 +153,7 @@ function App() {
               <Route path="/home" component={()=><Home cars={searchDisplay} handleBuyNow={handleBuyNow} setCars={setCars} user={user}/>}/>
               <Route
                 path="/profile"
-                component={() => <Profile user={user} setUser={setUser} cars={cars} setCars={setCars} handleBuyNow={handleBuyNow} />}
+                component={() => <Profile user={user} setUser={setUser} cars={searchDisplay} setCars={setCars} handleBuyNow={handleBuyNow} />}
               />
               {/* <Route path="/cart" component={()=><Cart cars={myCars} handleBuyNow={handleBuyNow}/>} /> */}
               <Route path="/" component={()=><Home cars={searchDisplay} handleBuyNow={handleBuyNow} setCars={setCars} user={user}/>}/>
