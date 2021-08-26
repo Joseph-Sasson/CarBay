@@ -38,15 +38,19 @@ function App() {
     });
   }
 
-  const handleAddToCart = (car) =>{
-    if (!myCars.includes(car)){
-      const newMyCar = [...myCars, car]
-      setMyCars(newMyCar)
-    }}
+  const handleBuyNow = (car) =>{
+    if (window.confirm("Are you sure you want to buy this car?"))
+    fetch(`/buy/${car.id}`,{
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"}
+    })
+    .then(r=>r.json())
+    .then(newCar=>{
+      handleRemoveCar(newCar)
+      setCars((cars)=>[...cars, newCar])})}
 
-    const handleRemoveFromCart = (car) =>{
-      const newMyCar = [...myCars].filter(myCar=>car.id !== myCar.id)
-      setMyCars(newMyCar)
+    const handleRemoveCar = (removeCar)=>{
+      setCars((cars)=>cars.filter((car)=>car.id !== removeCar.id))
     }
 
     function onSearchChange (e){
@@ -128,11 +132,11 @@ function App() {
                   </Link>
                 </li>
                 <input className = "search-bar" type="text" name="search" placeholder="Search..." onChange={onSearchChange} value={search}/>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to={"/cart"}>
                     Shopping Cart
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to={"/"} onClick={handleLogout}>
                     Logout
@@ -146,13 +150,13 @@ function App() {
         <div className="outer">
           <div className="inner">
             <Switch>
-              <Route path="/home" component={()=><Home cars={searchDisplay} handleAddToCart={handleAddToCart} setCars={setCars} user={user}/>}/>
+              <Route path="/home" component={()=><Home cars={searchDisplay} handleBuyNow={handleBuyNow} setCars={setCars} user={user}/>}/>
               <Route
                 path="/profile"
-                component={() => <Profile user={user} setUser={setUser} />}
+                component={() => <Profile user={user} setUser={setUser} cars={cars} setCars={setCars} handleBuyNow={handleBuyNow} />}
               />
-              <Route path="/cart" component={()=><Cart cars={myCars} handleRemoveFromCart={handleRemoveFromCart}/>} />
-              <Route path="/" component={()=><Home cars={searchDisplay} handleAddToCart={handleAddToCart} setCars={setCars} user={user}/>}/>
+              {/* <Route path="/cart" component={()=><Cart cars={myCars} handleBuyNow={handleBuyNow}/>} /> */}
+              <Route path="/" component={()=><Home cars={searchDisplay} handleBuyNow={handleBuyNow} setCars={setCars} user={user}/>}/>
             </Switch>
           </div>
         </div>

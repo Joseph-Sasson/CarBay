@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Car({car, click, setCars, cars}){
+function Car({car, handleBuyNow, setCars, user}){
 
   const handleDeleteCar = (deletedCar) =>{
+    
     setCars((cars)=>cars.filter((car)=>car.id !== deletedCar.id))
   }
 
@@ -23,7 +24,7 @@ function Car({car, click, setCars, cars}){
           <div>Car name: {car.car_name}</div>
           <div>Price: {car.price}</div>
           {/* <div>Owner: {car.user.name}</div> */}
-          <button onClick={click}>Add to cart</button>
+          <button onClick={()=>handleBuyNow(car)}>Buy now</button>
           <button className = 'change-button' onClick={remove}>Delete car</button>
         </div>
       </div>

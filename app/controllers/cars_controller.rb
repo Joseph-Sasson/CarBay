@@ -32,6 +32,14 @@ class CarsController < ApplicationController
     head :no_content
   end
 
+  def buy
+    car = Car.find(params[:id])
+    user = User.find_by(id: session[:user_id])
+    car.user = user
+    car.save
+    render json: car, status: :accepted
+  end
+
   private
 
   def car_params

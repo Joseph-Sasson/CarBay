@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Car from './Car';
 
-function Home({cars, handleAddToCart, setCars, user}){
+function Home({cars, handleBuyNow, setCars, user}){
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -81,9 +81,10 @@ function Home({cars, handleAddToCart, setCars, user}){
         ))}
       </div>
       </form>
+      <h2 id = 'header'>Cars for sale</h2>
       <div>
         {cars.map(car=>{
-          return <Car key={car.id} car={car} click={handleAddToCart} setCars={setCars} cars={cars} />
+          if (user.id !== car.user.id) {return <Car key={car.id} car={car} handleBuyNow={handleBuyNow} setCars={setCars} user={user} />}
         })}
       </div>
     </>

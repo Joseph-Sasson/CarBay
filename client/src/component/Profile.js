@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
+import Car from './Car';
 
-function Profile({user, setUser}){
+function Profile({user, setUser, cars, setCars, handleBuyNow}){
   const [errors, setErrors] = useState([]);
-  // const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [userForm, setUserForm] = useState({
     name: user.name,
     email: user.email
-    // password: user.password,
   })
 
   const handleChange = e =>{
@@ -60,16 +59,6 @@ function Profile({user, setUser}){
             onChange = {handleChange}
           />
         </li>
-        {/* <li className = 'account-list'>Password:
-          <input
-          type={isRevealPwd ? "text" : "password"}
-          name = 'password'
-          value = {userForm.password}
-          onChange = {handleChange}
-          />
-          <br/>
-          <i onClick={() => setIsRevealPwd(!isRevealPwd)}>Show Password</i>
-        </li> */}
       </ul>
       <button onClick = {handleDelete}>Delete Account</button>
       <button className = 'change-button' onClick = {submitChange}>Update Account</button>
@@ -77,6 +66,12 @@ function Profile({user, setUser}){
         {errors.map((err) => (
           <span>!{err}</span>
         ))}
+      </div>
+      <h2 id = 'header'>My cars</h2>
+      <div>
+        {cars.map(car=>{
+          if (user.id === car.user.id) {return <Car key={car.id} car={car} setCars={setCars} handleBuyNow={handleBuyNow} />}
+        })}
       </div>
     </div>
   )
