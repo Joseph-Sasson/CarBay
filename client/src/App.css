@@ -12,27 +12,6 @@
   margin: 15px;
 }
 
-.password-form {
-  border: none;
-  background-color: transparent;
-  resize: none;
-  outline: none;
-}
-
-.user-card{
-  float: left;
-  margin: 2%;
-  padding: 1%;
-}
-
-.car-tile {
-  display: inline;
-  background-repeat: no-repeat;
-  background-position: center 90%;
-  float: left;
-  margin: 2%;
-  padding: 1%;
-  outline: #3B0B0B dotted thick;
-  transition: 0.75s;
-  opacity: 1;
+.search-bar{
+  width: 100%;
 }

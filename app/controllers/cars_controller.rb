@@ -35,7 +35,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.permit(:image, :price, :car_name, user_id)
+    params.permit(:image, :price, :car_name, :user_id)
   end
 
   def render_not_found

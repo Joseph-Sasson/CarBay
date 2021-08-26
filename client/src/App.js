@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+// import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./component/Login";
@@ -13,6 +13,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [cars, setCars] = useState([])
   const [myCars, setMyCars] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -44,9 +45,17 @@ function App() {
     }}
 
     const handleRemoveFromCart = (car) =>{
-      const newMyCar = [...myCars].filter(car=>cars.id !== car.id)
+      const newMyCar = [...myCars].filter(myCar=>car.id !== myCar.id)
       setMyCars(newMyCar)
     }
+
+    function onSearchChange (e){
+      setSearch(e.target.value)
+    }
+  
+    const searchDisplay = cars.filter((car)=>{
+      return (car.car_name.toLowerCase().includes(search.toLowerCase()))
+    })
 
   if (!user) {
     return (
@@ -118,6 +127,7 @@ function App() {
                     Profile
                   </Link>
                 </li>
+                <input className = "search-bar" type="text" name="search" placeholder="Search..." onChange={onSearchChange} value={search}/>
                 <li className="nav-item">
                   <Link className="nav-link" to={"/cart"}>
                     Shopping Cart
@@ -136,13 +146,13 @@ function App() {
         <div className="outer">
           <div className="inner">
             <Switch>
-              <Route path="/home" component={()=><Home cars={cars} handleAddToCart={handleAddToCart}/>} />
+              <Route path="/home" component={()=><Home cars={searchDisplay} handleAddToCart={handleAddToCart} setCars={setCars} user={user}/>}/>
               <Route
                 path="/profile"
                 component={() => <Profile user={user} setUser={setUser} />}
               />
-              <Route path="/cart" component={()=><Cart cars={myCars}/>} />
-              <Route path="/" component={()=><Home cars={cars} handleAddToCart={handleAddToCart}/>} />
+              <Route path="/cart" component={()=><Cart cars={myCars} handleRemoveFromCart={handleRemoveFromCart}/>} />
+              <Route path="/" component={()=><Home cars={searchDisplay} handleAddToCart={handleAddToCart} setCars={setCars} user={user}/>}/>
             </Switch>
           </div>
         </div>

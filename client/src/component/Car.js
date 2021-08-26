@@ -1,14 +1,32 @@
 import React from 'react';
 
-function Car({car, handleAddToCart, handleRemoveFromCart}){
+function Car({car, click, setCars, cars}){
+
+  const handleDeleteCar = (deletedCar) =>{
+    setCars((cars)=>cars.filter((car)=>car.id !== deletedCar.id))
+  }
+
+  const remove = () =>{
+    if (window.confirm("Are you sure you want to delete this car?"))
+    fetch(`/cars/${car.id}`,{
+    method: "DELETE",
+      }).then((r)=>{
+        if (r.ok){
+          handleDeleteCar(car)
+    }})}
 
   return (
-    <div className="car-tile">
-      <img alt="Car" src={car.image} width='300' height='250' />
-      <div>Car name: {car.car_name}</div>
-      <div>Price: {car.price}</div>
-      {/* <div>Owner: {car.user.name}</div> */}
-      <button onClick={handleAddToCart}>Add to cart</button>
+    <div className="row">
+      <div className="column">
+        <div className = "card">
+          <img alt="Car" src={car.image} width='300' height='250' />
+          <div>Car name: {car.car_name}</div>
+          <div>Price: {car.price}</div>
+          {/* <div>Owner: {car.user.name}</div> */}
+          <button onClick={click}>Add to cart</button>
+          <button className = 'change-button' onClick={remove}>Delete car</button>
+        </div>
+      </div>
     </div>
   )
 }

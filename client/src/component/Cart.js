@@ -5,7 +5,7 @@ function Cart({cars, handleRemoveFromCart}){
   return (
     <div>
       {cars.map(car=>{
-        return <Car key={car.id} car={car} handleRemoveFromCart={handleRemoveFromCart} />
+        return <Car key={car.id} car={car} click={handleRemoveFromCart} />
       })}
     </div>
   )
