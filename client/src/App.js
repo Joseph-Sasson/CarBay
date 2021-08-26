@@ -6,13 +6,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./component/Login";
 import Signup from "./component/Signup";
 import Home from "./component/Home";
-import Cart from "./component/Cart";
+// import Cart from "./component/Cart";
 import Profile from "./component/Profile";
 
 function App() {
   const [user, setUser] = useState(null);
   const [cars, setCars] = useState([])
-  const [myCars, setMyCars] = useState([])
+  // const [myCars, setMyCars] = useState([])
   const [search, setSearch] = useState('')
 
   useEffect(() => {
