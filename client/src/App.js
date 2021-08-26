@@ -11,6 +11,8 @@ import Profile from "./component/Profile";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [cars, setCars] = useState([])
+  const [myCars, setMyCars] = useState([])
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -20,6 +22,12 @@ function App() {
     });
   }, []);
 
+  useEffect(()=>{
+    fetch(`/cars`)
+    .then(res=>res.json())
+    .then(setCars)
+  },[])
+
   function handleLogout() {
     if (window.confirm("Are you sure you want to logout?"))
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -28,6 +36,17 @@ function App() {
       }
     });
   }
+
+  const handleAddToCart = (car) =>{
+    if (!myCars.includes(car)){
+      const newMyCar = [...myCars, car]
+      setMyCars(newMyCar)
+    }}
+
+    const handleRemoveFromCart = (car) =>{
+      const newMyCar = [...myCars].filter(car=>cars.id !== car.id)
+      setMyCars(newMyCar)
+    }
 
   if (!user) {
     return (
@@ -117,13 +136,13 @@ function App() {
         <div className="outer">
           <div className="inner">
             <Switch>
-              <Route path="/home" component={Home} />
+              <Route path="/home" component={()=><Home cars={cars} handleAddToCart={handleAddToCart}/>} />
               <Route
                 path="/profile"
                 component={() => <Profile user={user} setUser={setUser} />}
               />
-              <Route path="/cart" component={Cart} />
-              <Route path="/" component={Home} />
+              <Route path="/cart" component={()=><Cart cars={myCars}/>} />
+              <Route path="/" component={()=><Home cars={cars} handleAddToCart={handleAddToCart}/>} />
             </Switch>
           </div>
         </div>

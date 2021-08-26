@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.update(user_params)
     if user.valid?
-      render json: user
+      render json: user, status: :accepted
     else
       render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end

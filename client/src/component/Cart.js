@@ -1,9 +1,12 @@
 import React from 'react';
+import Car from './Car';
 
-function Cart(){
+function Cart({cars, handleRemoveFromCart}){
   return (
     <div>
-      Shopping Cart
+      {cars.map(car=>{
+        return <Car key={car.id} car={car} handleRemoveFromCart={handleRemoveFromCart} />
+      })}
     </div>
   )
 }
