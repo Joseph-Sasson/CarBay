@@ -1,4 +1,5 @@
 import React from 'react';
+import "../car.css"
 
 function Car({car, handleBuyNow, setCars, user}){
 
@@ -20,13 +21,15 @@ function Car({car, handleBuyNow, setCars, user}){
 }
 
   return (
-    <div>
-      <img alt="Car" src={car.image} width='300' height='250' />
-      <div>{car.car_name}</div>
-      <div>Price: ${car.price}</div>
-      <div>Owner: {car.user.name}</div>
-      <button onClick={()=>handleBuyNow(car)}>Buy now</button>
-      <button className = 'change-button' onClick={remove}>Delete car</button>
+    <div className="column">
+      <div className="card">
+        <img alt="Car" src={car.image} width='300' height='250'/>
+        <div>{car.car_name}</div>
+        <div>Price: ${car.price}</div>
+        <div>Owner: {car.user.name}</div>
+        <button onClick={()=>handleBuyNow(car)}>Buy now</button>
+        <button className = 'change-button' onClick={remove}>Delete car</button>
+      </div>
     </div>
   )
 }

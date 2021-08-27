@@ -82,7 +82,7 @@ function Home({cars, handleBuyNow, setCars, user}){
       </div>
       </form>
       <h2 id = 'header'>Cars for sale</h2>
-      <div>
+      <div className="row">
         {cars.map(car=>{
           if (user.id !== car.user.id) {return <Car key={car.id} car={car} handleBuyNow={handleBuyNow} setCars={setCars} user={user} />}
         })}

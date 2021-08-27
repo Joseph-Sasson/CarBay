@@ -68,7 +68,7 @@ function Profile({user, setUser, cars, setCars, handleBuyNow}){
         ))}
       </div>
       <h2 id = 'header'>My cars</h2>
-      <div>
+      <div className="row">
         {cars.map(car=>{
           if (user.id === car.user.id) {return <Car key={car.id} car={car} setCars={setCars} handleBuyNow={handleBuyNow} user={user} />}
         })}
