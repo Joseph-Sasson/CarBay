@@ -38,7 +38,8 @@ function Profile({ user, setUser, cars, setCars, handleBuyNow }) {
         method: "DELETE",
       }).then((r) => {
         if (r.ok) {
-          setUser(null);
+          setUser(null)
+          window.location.reload(true)
         }
       });
   };
