@@ -2,7 +2,7 @@ puts "🌱 Seeding users..."
 
 test = User.create(name:"test" ,email:"test@test.com" ,password:"flatiron" ,password_confirmation:"flatiron" )
 joseph = User.create(name:"Joseph Sasson" ,email:"joseph@gmail.com" ,password:"flatiron" ,password_confirmation:"flatiron" )
-hadi = User.create(name:"Hadi Abaza" ,email:"Hadi@gmail.com" ,password:"flatiron" ,password_confirmation:"flatiron" )
+hadi = User.create(name:"Hadi Abaza" ,email:"hadi@gmail.com" ,password:"flatiron" ,password_confirmation:"flatiron" )
 
 puts "🌱 Seeding cars..."
 

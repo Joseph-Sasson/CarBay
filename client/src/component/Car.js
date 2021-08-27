@@ -15,21 +15,19 @@ function Car({car, handleBuyNow, setCars, user}){
       }).then((r)=>{
         if (r.ok){
           handleDeleteCar(car)
-    }})}
-  else
-  {alert("You can't delete this car unless you own it!")}
+      }})}
+        else
+      {alert("You can't delete this car unless you own it!")}
 }
 
   return (
-    <div className="column">
-      <div className="card">
-        <img alt="Car" src={car.image} width='300' height='250'/>
-        <div>{car.car_name}</div>
-        <div>Price: ${car.price}</div>
-        <div>Owner: {car.user.name}</div>
-        <button onClick={()=>handleBuyNow(car)}>Buy now</button>
-        <button className = 'change-button' onClick={remove}>Delete car</button>
-      </div>
+    <div className="card">
+      <img alt="Car" src={car.image} width='300' height='250'/>
+      <div>{car.car_name}</div>
+      <div>Price: ${car.price}</div>
+      <div>Owner: {car.user.name}</div>
+      <button onClick={()=>handleBuyNow(car)}>Buy now</button>
+      <button className = 'change-button' onClick={remove}>Delete car</button>
     </div>
   )
 }
