@@ -1,0 +1,15 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: fit-content;
+  justify-content: center;
+}
+
+.card {
+  margin: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  border-radius: 10px;
+  
+}
