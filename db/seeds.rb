@@ -3,8 +3,6 @@ puts "🌱 Seeding users..."
 sloan = User.create(name:"Sloan Bee" ,email:"test@test.com" ,password:"flatiron" ,password_confirmation:"flatiron" )
 joseph = User.create(name:"Joseph Sasson" ,email:"joseph@gmail.com" ,password:"flatiron" ,password_confirmation:"flatiron" )
 hadi = User.create(name:"Hadi Abaza" ,email:"hadi@gmail.com" ,password:"flatiron" ,password_confirmation:"flatiron" )
-<<<<<<< HEAD
-=======
 dariana = User.create(name: "Dariana Gonzalez", email:"dariana@gmail.com", password:"flatiron", password_confirmation:"flatiron")
 shivang = User.create(name: "Shivang Dave", email:"shivang@gmail.com", password:"flatiron", password_confirmation:"flatiron")
 emmet = User.create(name: "Emmet Free", email:"emmet@gmail.com", password:"flatiron", password_confirmation:"flatiron")
@@ -14,7 +12,6 @@ franz = User.create(name: "Franz Bauer", email:"franz@gmail.com", password:"flat
 sal = User.create(name: "Sal Hill", email:"sal@gmail.com", password:"flatiron", password_confirmation:"flatiron")
 mat = User.create(name: "Mathew OBrien", email:"mat@gmail.com", password:"flatiron", password_confirmation:"flatiron")
 
->>>>>>> seeds
 
 puts "🌱 Seeding cars..."
 
