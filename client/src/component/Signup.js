@@ -80,7 +80,7 @@ function Signup({ setUser }) {
         />
       </div>
       <div className="form-group">
-        <label>Password confirmation</label>
+        <label>Password confirmation</label>{" "}
         <input
           type="password"
           className="form-control"

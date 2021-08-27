@@ -11,9 +11,9 @@ import Profile from "./component/Profile";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [cars, setCars] = useState([])
+  const [cars, setCars] = useState([]);
   // const [myCars, setMyCars] = useState([])
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -23,43 +23,45 @@ function App() {
     });
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`/cars`)
-    .then(res=>res.json())
-    .then(setCars)
-  },[])
+      .then((res) => res.json())
+      .then(setCars);
+  }, []);
 
   function handleLogout() {
     if (window.confirm("Are you sure you want to logout?"))
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }
-    });
+      fetch("/logout", { method: "DELETE" }).then((r) => {
+        if (r.ok) {
+          setUser(null);
+        }
+      });
   }
 
-  const handleBuyNow = (car) =>{
+  const handleBuyNow = (car) => {
     if (window.confirm("Are you sure you want to buy this car?"))
-    fetch(`/buy/${car.id}`,{
-      method: "PATCH",
-      headers: {"Content-Type": "application/json"}
-    })
-    .then(r=>r.json())
-    .then(newCar=>{
-      handleRemoveCar(newCar)
-      setCars((cars)=>[...cars, newCar])})}
+      fetch(`/buy/${car.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((r) => r.json())
+        .then((newCar) => {
+          handleRemoveCar(newCar);
+          setCars((cars) => [...cars, newCar]);
+        });
+  };
 
-    const handleRemoveCar = (removeCar)=>{
-      setCars((cars)=>cars.filter((car)=>car.id !== removeCar.id))
-    }
+  const handleRemoveCar = (removeCar) => {
+    setCars((cars) => cars.filter((car) => car.id !== removeCar.id));
+  };
 
-    function onSearchChange (e){
-      setSearch(e.target.value)
-    }
-  
-    const searchDisplay = cars.filter((car)=>{
-      return (car.car_name.toLowerCase().includes(search.toLowerCase()))
-    })
+  function onSearchChange(e) {
+    setSearch(e.target.value);
+  }
+
+  const searchDisplay = cars.filter((car) => {
+    return car.car_name.toLowerCase().includes(search.toLowerCase());
+  });
 
   if (!user) {
     return (
@@ -67,7 +69,7 @@ function App() {
         <div className="App">
           <nav className="navbar navbar-expand-lg navbar-light fixed-top">
             <div className="container">
-              <Link className="navbar-brand" to={"/"}>
+              <Link className="heading" to={"/"}>
                 CarBay
               </Link>
               <div
@@ -131,7 +133,14 @@ function App() {
                     Profile
                   </Link>
                 </li>
-                <input className = "search-bar" type="text" name="search" placeholder="Search..." onChange={onSearchChange} value={search}/>
+                <input
+                  className="search-bar"
+                  type="text"
+                  name="search"
+                  placeholder="Search..."
+                  onChange={onSearchChange}
+                  value={search}
+                />
                 {/* <li className="nav-item">
                   <Link className="nav-link" to={"/cart"}>
                     Shopping Cart
@@ -150,13 +159,41 @@ function App() {
         <div className="outer">
           <div className="inner">
             <Switch>
-              <Route path="/home" component={()=><Home cars={searchDisplay} handleBuyNow={handleBuyNow} setCars={setCars} user={user}/>}/>
+              <Route
+                path="/home"
+                component={() => (
+                  <Home
+                    cars={searchDisplay}
+                    handleBuyNow={handleBuyNow}
+                    setCars={setCars}
+                    user={user}
+                  />
+                )}
+              />
               <Route
                 path="/profile"
-                component={() => <Profile user={user} setUser={setUser} cars={searchDisplay} setCars={setCars} handleBuyNow={handleBuyNow} />}
+                component={() => (
+                  <Profile
+                    user={user}
+                    setUser={setUser}
+                    cars={searchDisplay}
+                    setCars={setCars}
+                    handleBuyNow={handleBuyNow}
+                  />
+                )}
               />
               {/* <Route path="/cart" component={()=><Cart cars={myCars} handleBuyNow={handleBuyNow}/>} /> */}
-              <Route path="/" component={()=><Home cars={searchDisplay} handleBuyNow={handleBuyNow} setCars={setCars} user={user}/>}/>
+              <Route
+                path="/"
+                component={() => (
+                  <Home
+                    cars={searchDisplay}
+                    handleBuyNow={handleBuyNow}
+                    setCars={setCars}
+                    user={user}
+                  />
+                )}
+              />
             </Switch>
           </div>
         </div>
