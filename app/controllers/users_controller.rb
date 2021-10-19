@@ -15,7 +15,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
+    user = User.new(user_params)
+    user.email.downcase!
+    user.save
     if user.valid?
       session[:user_id] = user.id 
       render json: user, status: :created
