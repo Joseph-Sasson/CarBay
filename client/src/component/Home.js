@@ -84,9 +84,6 @@ function Home({cars, handleBuyNow, setCars, user}){
       <h2 id = 'header'>Cars for sale</h2>
       <div className="row">
         {cars.filter(car=>car.user.id !== user.id).map(car=> {return <Car key={car.id} car={car} handleBuyNow={handleBuyNow} setCars={setCars} user={user} />})}
-        {/* {cars.map(car=>{
-          if (user.id !== car.user.id) {return <Car key={car.id} car={car} handleBuyNow={handleBuyNow} setCars={setCars} user={user} />}
-        })} */}
       </div>
     </>
   )
