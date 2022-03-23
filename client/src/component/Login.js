@@ -5,8 +5,7 @@ function Login({ setUser }) {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
-    password: "",
-    rememberMe: false,
+    password: ""
   });
 
   const handleLogin = (event) => {
@@ -36,8 +35,7 @@ function Login({ setUser }) {
           onChange={(e) => {
             setFormData({
               email: e.target.value,
-              password: formData.password,
-              rememberMe: formData.rememberMe,
+              password: formData.password
             });
           }}
           type="email"
@@ -45,7 +43,7 @@ function Login({ setUser }) {
           placeholder="Enter email"
         />
       </div>
-
+        <br/>
       <div className="form-group">
         <label>Password</label>
         <input
@@ -53,8 +51,7 @@ function Login({ setUser }) {
           onChange={(e) => {
             setFormData({
               email: formData.email,
-              password: e.target.value,
-              rememberMe: formData.rememberMe,
+              password: e.target.value
             });
           }}
           type="password"
@@ -62,34 +59,17 @@ function Login({ setUser }) {
           placeholder="Enter password"
         />
       </div>
-      <div className="form-group">
-        <div className="custom-control custom-checkbox">
-          <input
-            value={formData.rememberMe}
-            onChange={(e) => {
-              setFormData({
-                email: formData.email,
-                password: formData.password,
-                rememberMe: e.target.checked,
-              });
-            }}
-            type="checkbox"
-            className="custom-control-input"
-            id="customCheck1"
-          />
-          <label className="custom-control-label" htmlFor="customCheck1">
-            Remember me
-          </label>
-        </div>
+        <br/>
+      <div>
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="btn btn-dark btn-lg btn-block"
+        >
+          {isLoading ? "Loading..." : "Login"}
+        </button>
       </div>
-      <button
-        type="submit"
-        disabled={isLoading}
-        className="btn btn-dark btn-lg btn-block"
-      >
-        {isLoading ? "Loading..." : "Login"}
-      </button>
-       
+
       <div>{errors}</div>
 
     </form>

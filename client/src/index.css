@@ -84,6 +84,12 @@ html,
   font-weight: 400;
 }
 
+h1,h2,h3,h4,h5,h6,label,span {
+  font-weight: 900;
+  font-size: larger;
+  font-family: 'Calibri', sans-serif;
+}
+
 .forgot-password,
 .forgot-password a {
   text-align: right;
