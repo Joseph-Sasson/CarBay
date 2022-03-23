@@ -24,7 +24,7 @@ function Car({car, handleBuyNow, setCars, user}){
     <div className="card">
       <img alt="Car" src={car.image} width='300' height='250'/>
       <div>{car.car_name}</div>
-      <div>Price: ${car.price}</div>
+      <div>Price: {`$${car.price}`}</div>
       <div>Owner: {car.user.name}</div>
       <button onClick={()=>handleBuyNow(car)}>Buy now</button>
       <button className = 'change-button' onClick={remove}>Delete car</button>
