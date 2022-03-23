@@ -53,6 +53,21 @@ html,
   transition: all 0.3s;
 }
 
+.outer .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  border-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  appearance: none;
+  border-radius: 0.25rem;
+}
+
 .outer .form-control:focus {
   border-color: #167bff;
   box-shadow: none;
