@@ -43,7 +43,7 @@ function Login({ setUser }) {
           placeholder="Enter email"
         />
       </div>
-        <br/>
+        
       <div className="form-group">
         <label>Password</label>
         <input
@@ -59,7 +59,7 @@ function Login({ setUser }) {
           placeholder="Enter password"
         />
       </div>
-        <br/>
+        
       <div>
         <button
           type="submit"

@@ -53,6 +53,10 @@ html,
   transition: all 0.3s;
 }
 
+.form-group{
+  padding-bottom: 1rem;
+}
+
 .outer .form-control {
   display: block;
   width: 100%;
