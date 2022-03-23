@@ -93,9 +93,6 @@ function Profile({ user, setUser, cars, setCars, handleBuyNow }) {
               />
             );
           })}
-        {/* {cars.map(car=>{
-          if (user.id === car.user.id) {return <Car key={car.id} car={car} setCars={setCars} handleBuyNow={handleBuyNow} user={user} />}
-        })} */}
       </div>
     </div>
   );
