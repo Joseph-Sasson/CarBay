@@ -8,18 +8,11 @@ body {
   font-weight: 400;
   font-family: sans-serif;
   background: #12c2e9;
-  background: -webkit-linear-gradient(
-    to right,
-    #f64f59,
-    #c471ed,
-    #12c2e9
-  );
-  background: linear-gradient(
-    to right,
-    #f64f59,
-    #c471ed,
-    #12c2e9
-  );
+  background-image: url("https://cdn.wallpapersafari.com/58/24/HuOX2p.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body,
@@ -60,9 +53,6 @@ html,
   justify-content: center;
   flex-direction: column;
   text-align: left;
-  background-image: url("https://cdn.wallpapersafari.com/58/24/HuOX2p.jpg");
-  background-size: cover;
-  background-position: center;
 }
 
 .inner {
