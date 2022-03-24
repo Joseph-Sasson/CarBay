@@ -60,6 +60,9 @@ html,
   justify-content: center;
   flex-direction: column;
   text-align: left;
+  background-image: url("https://cdn.wallpapersafari.com/58/24/HuOX2p.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .inner {
@@ -70,6 +73,7 @@ html,
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .form-group{
@@ -111,6 +115,7 @@ h1,h2,h3,h4,h5,h6,label,span {
   font-weight: 900;
   font-size: larger;
   font-family: 'Calibri', sans-serif;
+  color: white;
 }
 
 .forgot-password,

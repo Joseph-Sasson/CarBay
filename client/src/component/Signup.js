@@ -45,52 +45,48 @@ function Signup({ setUser }) {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <h3>Sign up</h3>
+      <h3>Sign Up</h3>
       <div className="form-group">
-        <label>Full name</label>
         <input
           type="text"
           className="form-control"
-          placeholder="Enter name"
+          placeholder="Name"
           name="name"
           value={formData.name}
           onChange={handleChange}
         />
       </div>
       <div className="form-group">
-        <label>Email</label>
         <input
           type="email"
           className="form-control"
-          placeholder="Enter email"
+          placeholder="Email Address"
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
       </div>
       <div className="form-group">
-        <label>Password</label>
         <input
           type="password"
           className="form-control"
-          placeholder="Enter password"
+          placeholder="Password"
           name="password"
           value={formData.password}
           onChange={handleChange}
         />
       </div>
       <div className="form-group">
-        <label>Password confirmation</label>{" "}
         <input
           type="password"
           className="form-control"
-          placeholder="Enter password"
+          placeholder="Password confirmation"
           name="passwordConfirmation"
           value={formData.passwordConfirmation}
           onChange={handleChange}
         />
       </div>
-      <button type="submit" className="btn btn-dark btn-lg btn-block">
+      <button type="submit" className="btn btn-light btn-md btn-block">
         {isLoading ? "Loading..." : "Sign Up"}
       </button>
       <div>

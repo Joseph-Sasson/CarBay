@@ -29,7 +29,6 @@ function Login({ setUser }) {
     <form onSubmit={handleLogin}>
       <h3>Login</h3>
       <div className="form-group">
-        <label>Email Address</label>
         <input
           value={formData.email}
           onChange={(e) => {
@@ -40,12 +39,11 @@ function Login({ setUser }) {
           }}
           type="email"
           className="form-control"
-          placeholder="Enter email"
+          placeholder="Email Address"
         />
       </div>
         
       <div className="form-group">
-        <label>Password</label>
         <input
           value={formData.password}
           onChange={(e) => {
@@ -56,7 +54,7 @@ function Login({ setUser }) {
           }}
           type="password"
           className="form-control"
-          placeholder="Enter password"
+          placeholder="Password"
         />
       </div>
         
@@ -64,7 +62,7 @@ function Login({ setUser }) {
         <button
           type="submit"
           disabled={isLoading}
-          className="btn btn-dark btn-lg btn-block"
+          className="btn btn-light btn-md btn-block"
         >
           {isLoading ? "Loading..." : "Login"}
         </button>
