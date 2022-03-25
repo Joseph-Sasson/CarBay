@@ -77,11 +77,10 @@ function Home({cars, handleBuyNow, setCars, user}){
         <button>{isLoading ? "Loading..." : "Add new car"}</button>
         <div>
         {errors.map((err) => (
-          <span>!{err}</span>
+          [<span className='error'>!{err}</span>, <br/>]
         ))}
       </div>
       </form>
-      <h2 id = 'header'>Cars for sale</h2>
       <div className="row">
         {cars.filter(car=>car.user.id !== user.id).map(car=> {return <Car key={car.id} car={car} handleBuyNow={handleBuyNow} setCars={setCars} user={user} />})}
       </div>

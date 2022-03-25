@@ -130,14 +130,6 @@ function App() {
                     Profile
                   </Link>
                 </li>
-                <input
-                  className="search-bar"
-                  type="text"
-                  name="search"
-                  placeholder="Search..."
-                  onChange={onSearchChange}
-                  value={search}
-                />
                 <li className="nav-item">
                   <Link className="nav-link" to={"/"} onClick={handleLogout}>
                     Logout
@@ -178,14 +170,22 @@ function App() {
                 path="/"
                 component={() => (
                   <Home
-                    cars={searchDisplay}
-                    handleBuyNow={handleBuyNow}
-                    setCars={setCars}
-                    user={user}
+                  cars={searchDisplay}
+                  handleBuyNow={handleBuyNow}
+                  setCars={setCars}
+                  user={user}
                   />
-                )}
+                  )}
               />
             </Switch>
+            <input
+              className="search-bar"
+              type="text"
+              name="search"
+              placeholder="Search For Car"
+              onChange={onSearchChange}
+              value={search}
+            />
           </div>
         </div>
       </div>
