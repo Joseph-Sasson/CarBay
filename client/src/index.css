@@ -56,7 +56,7 @@ html,
   text-align: left;
 }
 
-.inner {
+.login-inner {
   width: 450px;
   margin: auto;
   background: #ffffff;
@@ -67,8 +67,20 @@ html,
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.home-inner {
+  width: 450px;
+  margin-top: -50vh;
+  margin-left: 1vw;
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 20px 35px 20px 35px;
+  border-radius: 15px;
+  transition: all 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .form-group{
-  padding-bottom: 1rem;
+  padding-bottom: 1vh;
 }
 
 .outer .form-control {

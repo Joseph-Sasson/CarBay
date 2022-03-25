@@ -90,7 +90,7 @@ function App() {
           </nav>
 
           <div className="outer">
-            <div className="inner">
+            <div className="login-inner">
               <Switch>
                 <Route
                   path="/login"
@@ -141,7 +141,7 @@ function App() {
         </nav>
 
         <div className="outer">
-          <div className="inner">
+          <div className="home-inner">
             <Switch>
               <Route
                 path="/home"
