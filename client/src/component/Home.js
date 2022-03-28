@@ -45,7 +45,6 @@ function Home({cars, handleBuyNow, setCars, user}){
       </label>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="form-group">
-          <label>Car Name:</label>
           <input
             type="text"
             className="form-control"
@@ -56,7 +55,6 @@ function Home({cars, handleBuyNow, setCars, user}){
           />
         </div>
         <div className="form-group">
-          <label>Image URL: </label>
           <input
             type="text"
             className="form-control"
@@ -67,7 +65,6 @@ function Home({cars, handleBuyNow, setCars, user}){
           />
         </div>
         <div className="form-group">
-          <label>Price: </label>
           <input
             type="number"
             className="form-control"

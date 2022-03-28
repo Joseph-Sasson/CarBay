@@ -27,7 +27,7 @@ function Login({ setUser }) {
 
   return (
     <form onSubmit={handleLogin}>
-      <h3>Login</h3>
+      <h3 className='form-label'>Login</h3>
       <div className="form-group">
         <input
           value={formData.email}

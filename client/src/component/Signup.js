@@ -45,7 +45,7 @@ function Signup({ setUser }) {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <h3>Sign Up</h3>
+      <h3 className='form-label'>Sign Up</h3>
       <div className="form-group">
         <input
           type="text"
