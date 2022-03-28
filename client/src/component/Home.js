@@ -40,6 +40,9 @@ function Home({cars, handleBuyNow, setCars, user}){
 
   return (
     <div>
+      <label className='form-label'>
+        Add New Car
+      </label>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="form-group">
           <label>Car Name:</label>

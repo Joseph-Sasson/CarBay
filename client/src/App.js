@@ -178,14 +178,14 @@ function App() {
                   )}
               />
             </Switch>
-            <input
+            {/* <input
               className="search-bar"
               type="text"
               name="search"
               placeholder="Search For Car"
               onChange={onSearchChange}
               value={search}
-            />
+            /> */}
           </div>
         </div>
       </div>
