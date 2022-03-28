@@ -141,7 +141,7 @@ function App() {
         </nav>
 
         <div className="outer">
-          <div className="home-inner">
+          <div>
             <Switch>
               <Route
                 path="/home"

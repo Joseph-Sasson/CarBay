@@ -40,47 +40,49 @@ function Home({cars, handleBuyNow, setCars, user}){
 
   return (
     <div>
-      <label className='form-label'>
-        Add New Car
-      </label>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter car name"
-            name="car_name"
-            value={formData.car_name}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter image_url"
-            name="image"
-            value={formData.image}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Enter price"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-          />
-        </div>
-        <button>{isLoading ? "Loading..." : "Add new car"}</button>
-        <div>
-        {errors.map((err) => (
-          [<span className='error'>!{err}</span>, <br/>]
-        ))}
+      <div className="home-inner">
+        <h2 className='form-label'>
+          Add New Car
+        </h2>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter Car Name"
+              name="car_name"
+              value={formData.car_name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter Image_URL"
+              name="image"
+              value={formData.image}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="number"
+              className="form-control"
+              placeholder="Enter Price"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+            />
+          </div>
+          <button>{isLoading ? "Loading..." : "Add new car"}</button>
+          <div>
+          {errors.map((err) => (
+            [<span className='error'>!{err}</span>, <br/>]
+          ))}
+          </div>
+        </form>
       </div>
-      </form>
       <div className="row">
         {cars.filter(car=>car.user.id !== user.id).map(car=> {return <Car key={car.id} car={car} handleBuyNow={handleBuyNow} setCars={setCars} user={user} />})}
       </div>

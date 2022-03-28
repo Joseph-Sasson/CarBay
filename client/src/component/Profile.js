@@ -45,38 +45,40 @@ function Profile({ user, setUser, cars, setCars, handleBuyNow }) {
   };
 
   return (
-    <div className="auth-inners">
-      <h2>My Profile</h2>
-      <ul className="account-info">
-        <li className="account-list">
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={userForm.name}
-            onChange={handleChange}
-          />
-        </li>
-        <li className="account-list">
-          Email Address:
-          <input
-            type="text"
-            name="email"
-            value={userForm.email}
-            onChange={handleChange}
-          />
-        </li>
-      </ul>
-      <button className="profile-button" onClick={handleDelete}>
-        Delete Account
-      </button>
-      <button className="profile-button" onClick={submitChange}>
-        Update Account
-      </button>
-      <div>
-        {errors.map((err) => (
-          <span>!{err}</span>
-        ))}
+    <div>
+      <div className="profile-inner">
+        <h2 className='form-label'>My Profile</h2>
+          <div className="form-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              className="form-control"
+              value={userForm.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              className="form-control"
+              value={userForm.email}
+              onChange={handleChange}
+            />
+          </div>
+        <button className="" onClick={handleDelete}>
+          Delete Account
+        </button>
+        <button className="" onClick={submitChange}>
+          Update Account
+        </button>
+        <div>
+          {errors.map((err) => (
+            <span>!{err}</span>
+          ))}
+        </div>
       </div>
       <h2>My cars</h2>
       <div className="profile-car">
