@@ -76,7 +76,7 @@ function Profile({ user, setUser, cars, setCars, handleBuyNow }) {
         </button>
         <div>
           {errors.map((err) => (
-            <span>!{err}</span>
+            <span key={err.id}>!{err}</span>
           ))}
         </div>
       </div>
