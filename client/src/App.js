@@ -75,12 +75,12 @@ function App() {
               >
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <Link className="nav-link" to={"/login"}>
+                    <Link className="nav-link active" to={"/login"}>
                       Login
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to={"/signup"}>
+                    <Link className="nav-link active" to={"/signup"}>
                       Sign up
                     </Link>
                   </li>
@@ -121,17 +121,17 @@ function App() {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to={"/home"}>
+                  <Link className="nav-link active" to={"/home"}>
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={"/profile"}>
+                  <Link className="nav-link active" to={"/profile"}>
                     Profile
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={"/"} onClick={handleLogout}>
+                  <Link className="nav-link active" to={"/"} onClick={handleLogout}>
                     Logout
                   </Link>
                 </li>
