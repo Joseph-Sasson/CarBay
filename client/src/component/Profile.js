@@ -80,7 +80,6 @@ function Profile({ user, setUser, cars, setCars, handleBuyNow }) {
           ))}
         </div>
       </div>
-      <h2>My cars</h2>
       <div className="profile-car">
         {cars
           .filter((car) => car.user.id === user.id)
